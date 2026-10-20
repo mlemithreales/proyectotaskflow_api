@@ -21,6 +21,19 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Modelo de datos
+
+Diagrama entidad-relación: [docs/er.md](docs/er.md)
+
+## Datos de prueba
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+Crea un administrador (admin@taskflow.test / password), 8 colaboradores,
+4 proyectos y 24 tareas. Solo para desarrollo local.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.

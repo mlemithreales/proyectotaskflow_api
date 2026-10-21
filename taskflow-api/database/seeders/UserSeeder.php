@@ -9,16 +9,25 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        // En lugar de create(), usamos firstOrCreate para evitar duplicados
-        User::firstOrCreate(
-            ['email' => 'admin@taskflow.test'], // Condición de búsqueda
-            [
+        // 1. Forzamos la inclusión de la contraseña en los datos mapeados
+        $adminData = array_merge(
+            User::factory()->make([
                 'name' => 'Administrador TaskFlow',
-                // Si tu factory tiene contraseñas por defecto, se aplicarán aquí de forma automática
+                'email' => 'admin@taskflow.test',
+            ])->toArray(),
+            [
+                'password' => bcrypt('password'), // Agregamos explícitamente el campo obligatorio
             ]
         );
 
-        // Crear los 8 colaboradores aleatorios
+        // 2. Buscamos o creamos usando el arreglo completo
+        User::firstOrCreate(
+            ['email' => 'admin@taskflow.test'], 
+            $adminData
+        );
+
+        // 3. Crear los 8 colaboradores aleatorios
         User::factory(8)->create();
     }
+
 }

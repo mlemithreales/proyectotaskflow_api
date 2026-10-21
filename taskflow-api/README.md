@@ -32,7 +32,7 @@ php artisan migrate:fresh --seed
 ```
 
 Crea un administrador (admin@taskflow.test / password), 8 colaboradores,
-4 proyectos y 24 tareas. Solo para desarrollo local.
+4 proyectos y 24 tareas. Solo para desarrollo local.                                                                                                                                                                                                                                                                                                                                            
 
 ## Learning Laravel
 
